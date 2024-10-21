@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-     stage('MVN version') {
-      steps {
-        sh "mvn -version"      
-      }
-    }
       stage('MVN clean') {
        steps {
         sh "mvn clean"      
@@ -14,6 +9,11 @@ pipeline {
       stage('MVN compile') {
        steps {
         sh "mvn compile"      
+      }
+    }
+      stage('MVN sonarqube') {
+       steps {
+        sh "mvn sonar:sonar"      
       }
     }
   }
