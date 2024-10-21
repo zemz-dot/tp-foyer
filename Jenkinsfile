@@ -11,7 +11,7 @@ pipeline {
         sh "mvn compile"      
       }
     }
-stage('Sonarqube Analysis - SAST') {
+stage('Sonarqube Analysis') {
 steps {
 withSonarQubeEnv('SonarQube') {
 sh "mvn sonar: sonar \
