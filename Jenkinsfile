@@ -11,12 +11,12 @@ pipeline {
         sh "mvn compile"      
       }
     }
-stage('Sonarqube Analysis') {
-steps {
-withSonarQubeEnv('Sonarqube') {
-sh "mvn sonar:sonar \
--Dsonar.projectKey=DEVOPS1 \
--Dsonar.host.url=http://192.168.252.129:9000"
+       stage('Sonarqube Analysis') {
+         steps {
+         withSonarQubeEnv('Sonarqube') {
+         sh "mvn sonar:sonar \
+         -Dsonar.projectKey=DEVOPS1 \
+         -Dsonar.host.url=http://192.168.252.129:9000"
 }
 }
 }
