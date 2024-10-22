@@ -20,5 +20,23 @@ pipeline {
 }
 }
 }
+        stage('Nexsus') {
+         steps {
+           nexusArtifactUploader artifacts: [
+             [artifactId: 'tp-foyer', 
+              classifier: '', 
+              file: 'target/tp-foyer-5.0.0.war', 
+              type: 'war']
+           ], 
+             credentialsId: 'Nexus', 
+             groupId: 'org.springframework.boot', 
+             nexusUrl: '192.168.252.129:8081', 
+             nexusVersion: 'nexus3', 
+             protocol: 'http', 
+             repository: 'http://192.168.252.129:8081/repository/maven-releases/', 
+             version: '3.3.4'
+         }
+        }
+
 }
 }
