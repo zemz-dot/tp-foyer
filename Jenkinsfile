@@ -7,12 +7,16 @@ pipeline {
         sh "mvn compile"      
       }
     }
+    stage('MVN package') {
+      steps {
+        sh "mvn package"      
+      }
+    }
     stage('Check JAR') {
   steps {
     sh "ls -l target/"
   }
 }
-
        stage('Sonarqube Analysis') {
          steps {
          withSonarQubeEnv('Sonarqube') {
