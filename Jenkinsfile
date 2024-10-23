@@ -28,7 +28,7 @@ pipeline {
 }
 }
 }
-        stage('Nexsus') {
+        stage('Nexus') {
          steps {   nexusArtifactUploader artifacts: [
            [artifactId: 'tp-foyer', 
             classifier: '', 
