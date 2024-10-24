@@ -23,7 +23,7 @@ pipeline {
          steps {
          withSonarQubeEnv('Sonarqube') {
          sh "mvn sonar:sonar \
-         -Dsonar.projectKey=DEVOPS1 \
+         -Dsonar.projectKey=tpfoyer \
          -Dsonar.host.url=http://192.168.252.129:9000"
 }
 }
